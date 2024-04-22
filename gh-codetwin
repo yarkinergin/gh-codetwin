@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+python "main.py"
+
 echo "Hello gh-codetwin!"
 
 exec gh api user --jq '"You are @\(.login) (\(.name))."'
