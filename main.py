@@ -1,4 +1,5 @@
 import os
+import sys
 
 def iterFile(name):
     with open(name) as f:
@@ -20,9 +21,10 @@ def iterDir(directory):
         elif (os.path.isdir(filename) and filename[0] != "."):
             print(filename)
             iterDir(filename)
-
+print(sys.argv[1])
 print("Start:")
 directory = os.fsencode(os.getcwd())
-print(directory)
+directory = os.fsencode(sys.argv[0])
+#print(directory)
 iterDir(directory)
     
