@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
-echo "$(dirname "$0")"
-python "C:\Users\User\OneDrive\Belgeler\GitHub\gh-codetwin\main.py"
+rootPath="$(dirname "$0")"
+
+cd $rootPath
+exec "$rootPath/main.py" "$@"
 
 echo "Hello gh-codetwin!"
 
