@@ -2,7 +2,7 @@
 set -e
 
 echo "$(dirname "$0")"
-python "C:\Users\User\OneDrive\Belgeler\GitHub\main.py"
+python "C:\Users\User\OneDrive\Belgeler\GitHub\gh-codetwin\main.py"
 
 echo "Hello gh-codetwin!"
 
