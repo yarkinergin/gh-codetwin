@@ -4,6 +4,7 @@ set -e
 echo "$(dirname "$0")"
 
 cd $rootPath
+exho $rootPath
 python "$rootPath/main.py" "$@"
 
 echo "Hello gh-codetwin!"
