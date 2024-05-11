@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
-rootPath="$(dirname "$0")"
+echo "$(dirname "$0")"
 
 cd $rootPath
-exec "$rootPath/main.py" "$@"
+python "$rootPath/main.py" "$@"
 
 echo "Hello gh-codetwin!"
 
