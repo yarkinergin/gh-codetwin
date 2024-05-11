@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
+echo "$(dirname "$0")"
 python "main.py"
 
 echo "Hello gh-codetwin!"
