@@ -23,8 +23,14 @@ def iterDir(directory):
             iterDir(filename)
 print(sys.argv[1])
 print("Start:")
-directory = os.fsencode(os.getcwd())
-directory = os.fsencode(sys.argv[0])
+#directory = os.fsencode(os.getcwd())
+directory = os.fsencode(sys.argv[1])
 #print(directory)
 iterDir(directory)
+
+path = os.path.join(sys.argv[1], ".github")
+os.mkdir(path)
+
+path = os.path.join(sys.argv[1] + "/.github", "workflows")
+os.mkdir(path)
     
