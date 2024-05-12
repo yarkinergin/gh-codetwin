@@ -13,7 +13,7 @@ jobs:
       - run: bats -v
   Duplicate:
     runs-on: ubuntu-latest
-    name: Check here for duplciates
+    name: Check here for duplicates
     steps:
       - name: Check "Run python codetwin.py" for duplicates
         uses: actions/checkout@v4
