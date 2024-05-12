@@ -1,5 +1,6 @@
 import os
 import sys
+import shutil
 
 def iterFile(name):
     with open(name) as f:
@@ -29,8 +30,13 @@ directory = os.fsencode(sys.argv[1])
 iterDir(directory)
 
 path = os.path.join(sys.argv[1], ".github")
-os.mkdir(path)
+if(not os.path.exists(path)):
+    os.mkdir(path)
 
 path = os.path.join(sys.argv[1] + "/.github", "workflows")
-os.mkdir(path)
-    
+if(not os.path.exists(path)):
+    os.mkdir(path)
+
+shutil.copyfile('.github/workflows/learn-github-actions.yml', sys.argv[1] + "/.github/workflows/codetwin-github-actions.yml")
+
+shutil.copyfile('codetwin.py', sys.argv[1] + "/codetwin.py")
