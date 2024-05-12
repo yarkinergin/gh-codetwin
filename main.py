@@ -15,19 +15,22 @@ def iterFile(name):
                 seen.add(line_lower)
 
 def iterDir(directory):
+    if (os.listdir(directory)):
+        print("/" + os.fsdecode(os.path.basename(directory)))
+        print()
+
     for file in os.listdir(directory):
         filename = os.path.join(directory, file)
-        print(os.path.join(directory, file))
-        if (os.path.isfile(filename) and filename != "gh-codetwin"):
-            iterFile(filename)
-        elif (os.path.isdir(filename) and filename[0] != "."):
-            print(filename)
+        if (os.path.isfile(filename) and os.fsdecode(os.path.basename(filename)) != "gh-codetwin"):
+            ext = os.path.splitext(os.fsdecode(os.path.basename(filename)))[1]
+            if (ext == ".py" or ext == ".c" or ext == ".cpp" or ext == ".java"):
+                iterFile(filename)
+        elif (os.path.isdir(filename) and os.fsdecode(os.path.basename(filename))[0] != "."):
             iterDir(filename)
 
-print("Start:")
+print("Start:\n")
 #directory = os.fsencode(os.getcwd())
 directory = os.fsencode(sys.argv[1])
-print(directory)
 #print(directory)
 iterDir(directory)
 

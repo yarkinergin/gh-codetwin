@@ -10,20 +10,25 @@ def iterFile(name):
             count += 1
             line_lower = line.lower()
             if line_lower in seen and line_lower.strip() != "":
-                print("File:", name, " -> ", str(count) + ": ", line)
+                print("File:", os.fsdecode(os.path.basename(name)), " -> ", str(count) + ": ", line)
             else:
                 seen.add(line_lower)
 
 def iterDir(directory):
+    if (os.listdir(directory)):
+        print("/" + os.fsdecode(os.path.basename(directory)))
+        print()
+
     for file in os.listdir(directory):
-        filename = os.fsdecode(file)
-        if (os.path.isfile(filename) and filename != "gh-codetwin"):
-            iterFile(filename)
-        elif (os.path.isdir(filename) and filename[0] != "."):
-            print(filename)
+        filename = os.path.join(directory, file)
+        if (os.path.isfile(filename) and os.fsdecode(os.path.basename(filename)) != "gh-codetwin"):
+            ext = os.path.splitext(os.fsdecode(os.path.basename(filename)))[1]
+            if (ext == ".py" or ext == ".c" or ext == ".cpp" or ext == ".java"):
+                iterFile(filename)
+        elif (os.path.isdir(filename) and os.fsdecode(os.path.basename(filename))[0] != "."):
             iterDir(filename)
-print(sys.argv[1])
-print("Start:")
+
+print("Start:\n")
 directory = os.fsencode(os.getcwd())
 #print(directory)
 iterDir(directory)

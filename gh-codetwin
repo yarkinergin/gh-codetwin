@@ -9,9 +9,9 @@ echo "${PWD}"
 cd $rootPath
 python "$rootPath/main.py" "$codepath"
 
-echo "Hello gh-codetwin!"
+#echo "Hello gh-codetwin!"
 
-exec gh api user --jq '"You are @\(.login) (\(.name))."'
+#exec gh api user --jq '"You are @\(.login) (\(.name))."'
 
 # Snippets to help get started:
 
