@@ -1,5 +1,5 @@
-name: learn-github-actions
-run-name: ${{ github.actor }} is learning GitHub Actions
+name: Codetwin searches for duplicates
+run-name: ${{ github.actor }} is looking for duplicates
 on: [push]
 jobs:
   check-bats-version:
@@ -11,8 +11,9 @@ jobs:
           node-version: '20'
       - run: npm install -g bats
       - run: bats -v
-  Build:
+  Duplicate:
     runs-on: ubuntu-latest
+    name: Check here for duplciates
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
