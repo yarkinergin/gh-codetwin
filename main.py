@@ -31,8 +31,8 @@ def iterDir(directory):
 print("Start:\n")
 #directory = os.fsencode(os.getcwd())
 directory = os.fsencode(sys.argv[1])
-iterDir(directory)
 #print(directory)
+iterDir(directory)
 
 path = os.path.join(sys.argv[1], ".github")
 if(not os.path.exists(path)):
