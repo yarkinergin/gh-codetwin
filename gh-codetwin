@@ -6,7 +6,7 @@ codepath="${PWD}"
 
 echo "${PWD}"
 
-cd $rootPath
+cd "$rootPath"
 python "$rootPath/main.py" "$codepath"
 
 #echo "Hello gh-codetwin!"
